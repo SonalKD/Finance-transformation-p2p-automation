@@ -1,0 +1,7 @@
+Invoice_ID,Supplier_ID,PO_ID,Invoice_Date,Invoice_Amount,Currency,Approval_Status,Payment_Status
+INV001,SUP001,PO001,2026-01-20,1800,EUR,Approved,Paid
+INV002,SUP002,PO002,2026-01-22,3000,EUR,Approved,Paid
+INV003,SUP003,PO003,2026-01-24,2200,EUR,Approved,Pending
+INV004,SUP004,,2026-01-25,4500,EUR,Approved,Pending
+INV005,SUP005,PO005,2026-01-26,2800,EUR,Pending,Pending
+INV006,SUP001,PO001,2026-01-27,1800,EUR,Approved,Pending
