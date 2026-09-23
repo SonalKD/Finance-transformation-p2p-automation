@@ -111,3 +111,11 @@ exceptions_report = pd.DataFrame(exceptions)
 
 print("\nFinance Exceptions Report:")
 print(exceptions_report)
+# Save Finance Exceptions Report
+
+exceptions_report.to_csv(
+    "02_Data/finance_exceptions_report.csv",
+    index=False
+)
+
+print("\nFinance Exceptions Report saved successfully.")
