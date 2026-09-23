@@ -69,3 +69,45 @@ payment_mismatch = invoice_payment[
 
 print("\nPayments with amount mismatch:")
 print(payment_mismatch)
+# Create Finance Exceptions Report
+
+exceptions = []
+
+# Missing PO exceptions
+for _, row in missing_po.iterrows():
+    exceptions.append({
+        "Invoice_ID": row["Invoice_ID"],
+        "Supplier_ID": row["Supplier_ID"],
+        "PO_ID": row["PO_ID"],
+        "Control": "Missing Purchase Order",
+        "Reason": "Invoice does not contain a valid PO reference",
+        "Recommended_Action": "Verify whether a PO is required and investigate with Procurement"
+    })
+
+# PO amount mismatch exceptions
+for _, row in amount_mismatch.iterrows():
+    exceptions.append({
+        "Invoice_ID": row["Invoice_ID"],
+        "Supplier_ID": row["Supplier_ID"],
+        "PO_ID": row["PO_ID"],
+        "Control": "PO Amount Mismatch",
+        "Reason": f"Invoice amount {row['Invoice_Amount']} does not match PO amount {row['PO_Amount']}",
+        "Recommended_Action": "Review invoice and purchase order before payment"
+    })
+
+# Duplicate invoice exceptions
+for _, row in duplicate_invoices.iterrows():
+    exceptions.append({
+        "Invoice_ID": row["Invoice_ID"],
+        "Supplier_ID": row["Supplier_ID"],
+        "PO_ID": row["PO_ID"],
+        "Control": "Possible Duplicate Invoice",
+        "Reason": "Same supplier, PO and invoice amount appears more than once",
+        "Recommended_Action": "Review invoices and block duplicate payment if confirmed"
+    })
+
+# Convert the exception list into a table
+exceptions_report = pd.DataFrame(exceptions)
+
+print("\nFinance Exceptions Report:")
+print(exceptions_report)
