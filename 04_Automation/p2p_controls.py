@@ -34,3 +34,14 @@ amount_mismatch = invoice_po[
 
 print("\nInvoices with PO amount mismatch:")
 print(amount_mismatch)
+# Control 3: Find possible duplicate invoices
+
+duplicate_invoices = invoices[
+    invoices.duplicated(
+        subset=["Supplier_ID", "PO_ID", "Invoice_Amount"],
+        keep=False
+    )
+]
+
+print("\nPossible duplicate invoices:")
+print(duplicate_invoices)
