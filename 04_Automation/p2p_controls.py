@@ -12,3 +12,9 @@ print("Suppliers:", len(suppliers))
 print("Purchase Orders:", len(purchase_orders))
 print("Invoices:", len(invoices))
 print("Payments:", len(payments))
+# Control 1: Find invoices with missing Purchase Order
+
+missing_po = invoices[invoices["PO_ID"].isna()]
+
+print("\nInvoices with missing Purchase Order:")
+print(missing_po)
