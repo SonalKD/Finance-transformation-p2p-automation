@@ -60,3 +60,12 @@ paid_without_approval = invoice_payment[
 
 print("\nInvoices paid without approval:")
 print(paid_without_approval)
+# Control 5: Find payment amount mismatches
+
+payment_mismatch = invoice_payment[
+    (invoice_payment["Payment_Status"] == "Paid") &
+    (invoice_payment["Payment_Amount"] != invoice_payment["Invoice_Amount"])
+]
+
+print("\nPayments with amount mismatch:")
+print(payment_mismatch)
