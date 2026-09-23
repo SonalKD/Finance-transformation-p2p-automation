@@ -1,0 +1,6 @@
+PO_ID,Supplier_ID,PO_Date,Department,Description,Quantity,Unit_Price,PO_Amount,Currency,PO_Status
+PO001,SUP001,2026-01-05,Finance,Office chairs,10,180,1800,EUR,Approved
+PO002,SUP002,2026-01-08,IT,Software licenses,25,120,3000,EUR,Approved
+PO003,SUP003,2026-01-10,Operations,Packaging materials,500,4,2000,EUR,Approved
+PO004,SUP004,2026-01-12,Logistics,Transport services,1,4500,4500,EUR,Approved
+PO005,SUP005,2026-01-15,Marketing,Campaign design,1,2800,2800,EUR,Approved
