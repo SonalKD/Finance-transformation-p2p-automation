@@ -1,0 +1,6 @@
+Supplier_ID,Supplier_Name,Country,Payment_Terms,Status
+SUP001,Alpha Office Supplies,Netherlands,30 days,Active
+SUP002,Global Tech Services,Germany,30 days,Active
+SUP003,Euro Packaging BV,Netherlands,45 days,Active
+SUP004,Fast Logistics Belgium,Belgium,30 days,Active
+SUP005,Creative Marketing Ltd,United Kingdom,30 days,Active
