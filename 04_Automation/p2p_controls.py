@@ -45,16 +45,18 @@ duplicate_invoices = invoices[
 
 print("\nPossible duplicate invoices:")
 print(duplicate_invoices)
-# Control 4: Find invoices paid without approval
+# Merge invoices with payment data
 
 invoice_payment = invoices.merge(
     payments[["Invoice_ID", "Payment_Amount", "Payment_Status"]],
     on="Invoice_ID",
-    how="left"
+    how="left",
+    suffixes=("_Invoice", "_Payment")
 )
+# Control 4: Find invoices paid without approval
 
 paid_without_approval = invoice_payment[
-    (invoice_payment["Payment_Status"] == "Paid") &
+    (invoice_payment["Payment_Status_Payment"] == "Paid") &
     (invoice_payment["Approval_Status"] != "Approved")
 ]
 
@@ -63,7 +65,7 @@ print(paid_without_approval)
 # Control 5: Find payment amount mismatches
 
 payment_mismatch = invoice_payment[
-    (invoice_payment["Payment_Status"] == "Paid") &
+    (invoice_payment["Payment_Status_Payment"] == "Paid") &
     (invoice_payment["Payment_Amount"] != invoice_payment["Invoice_Amount"])
 ]
 

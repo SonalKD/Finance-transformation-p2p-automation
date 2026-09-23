@@ -1,0 +1,5 @@
+Invoice_ID,Supplier_ID,PO_ID,Control,Reason,Recommended_Action
+INV004,SUP004,,Missing Purchase Order,Invoice does not contain a valid PO reference,Verify whether a PO is required and investigate with Procurement
+INV003,SUP003,PO003,PO Amount Mismatch,Invoice amount 2200 does not match PO amount 2000.0,Review invoice and purchase order before payment
+INV001,SUP001,PO001,Possible Duplicate Invoice,"Same supplier, PO and invoice amount appears more than once",Review invoices and block duplicate payment if confirmed
+INV006,SUP001,PO001,Possible Duplicate Invoice,"Same supplier, PO and invoice amount appears more than once",Review invoices and block duplicate payment if confirmed
