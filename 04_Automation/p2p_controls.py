@@ -18,3 +18,19 @@ missing_po = invoices[invoices["PO_ID"].isna()]
 
 print("\nInvoices with missing Purchase Order:")
 print(missing_po)
+# Control 2: Find PO and invoice amount mismatches
+
+invoice_po = invoices.merge(
+    purchase_orders[["PO_ID", "PO_Amount"]],
+    on="PO_ID",
+    how="left"
+)
+
+amount_mismatch = invoice_po[
+    (invoice_po["PO_ID"].notna()) &
+    (invoice_po["PO_Amount"].notna()) &
+    (invoice_po["Invoice_Amount"] != invoice_po["PO_Amount"])
+]
+
+print("\nInvoices with PO amount mismatch:")
+print(amount_mismatch)
